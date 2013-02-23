@@ -1,15 +1,15 @@
 var thelp =  thelp || {};
 (function(tributary){  
 	tributary.helpers = tributary.helpers || {};
-	function Grid(svg , w, h, rangeNr, strokeCol, background){
+	function Grid(svg , w, h, rangeX, rangeY, strokeCol, background){
 		
 		svg.append('rect')
 		.attr('width', w)
 		.attr('height', h)
 		.style('fill',background)
 
-		var xscale = d3.scale.linear().domain([0, rangeNr]).range([0, w]);
-		var yscale = d3.scale.linear().domain([0, rangeNr]).range([0, h]);
+		var xscale = d3.scale.linear().domain([0, rangeX]).range([0, w]);
+		var yscale = d3.scale.linear().domain([0, rangeY]).range([0, h]);
 
 
 		var lineAttr = {
@@ -23,10 +23,11 @@ var thelp =  thelp || {};
 			'class':'grid-line'
 		};
 
-		var range = d3.range(rangeNr);
+		var rangeX = d3.range(rangeX);
+		var rangeY = d3.range(rangeY);
 
 		var t = svg.selectAll('line')
-		.data(range)
+		.data(rangeX)
 		.enter()
 
 		t.append('line')
@@ -36,6 +37,20 @@ var thelp =  thelp || {};
 		x2: function(d,i){ return xscale(i);},
 		y2: h
 		});
+
+
+		var t2 = svg.selectAll('line')
+		.data(rangeY)
+		.enter();
+
+		t2.append('line')
+		.attr(lineAttr)
+		.attr({
+		x2: w,
+		y1: function(d,i){ return yscale(i);},
+		y2: function(d,i){ return yscale(i);},
+		});
+
 
 		svg.append('line')
 		.attr(lineAttr)
@@ -151,13 +166,7 @@ var thelp =  thelp || {};
 		y2: h/2
 		});
 
-		t.append('line')
-		.attr(lineAttr)
-		.attr({
-		x2: w,
-		y1: function(d,i){ return yscale(i);},
-		y2: function(d,i){ return yscale(i);},
-		});
+
 
 	}
 	
