@@ -1,5 +1,5 @@
 function(tributary){
-
+	console.log("LOG:","tributary",tributary);
 	function Grid(w, h, rangeNr, strokeCol, background){
 		svg.append('rect')
 		.attr('width', w)
@@ -160,7 +160,9 @@ function(tributary){
 }
 var tributary = tributary || {};
 tributary.helpers = tributary.helpers || {};
-tributary.helpers.grid = Grid;
+console.log("helpers",tributary.helpers);
 
+tributary.helpers.grid = Grid;
+console.log("grid",tributary.helpers.grid);
 
 }(tributary);
