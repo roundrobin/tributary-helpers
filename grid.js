@@ -1,5 +1,5 @@
 var tributary =  tributary || {};
-(function(){  
+(function(tributary){  
 	tributary.helpers = tributary.helpers || {};
 	function Grid(w, h, rangeNr, strokeCol, background){
 		svg.append('rect')
