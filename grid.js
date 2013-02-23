@@ -1,8 +1,6 @@
-tributary = tributary || {};
-tributary.helpers = tributary.helpers || {};
-tributary.helpers.grid = Grid;
+function(tributary){
 
-function Grid(w, h, rangeNr, strokeCol, background){
+	function Grid(w, h, rangeNr, strokeCol, background){
 		svg.append('rect')
 		.attr('width', w)
 		.attr('height', h)
@@ -160,3 +158,9 @@ function Grid(w, h, rangeNr, strokeCol, background){
 		});
 
 }
+var tributary = tributary || {};
+tributary.helpers = tributary.helpers || {};
+tributary.helpers.grid = Grid;
+
+
+}(tributary);
