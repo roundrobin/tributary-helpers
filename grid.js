@@ -1,4 +1,4 @@
-var tributary =  tributary || {};
+var thelp =  thelp || {};
 (function(tributary){  
 	tributary.helpers = tributary.helpers || {};
 	function Grid(w, h, rangeNr, strokeCol, background){
@@ -163,4 +163,4 @@ var tributary =  tributary || {};
 	tributary.helpers.grid = Grid;
 
 
-})(tributary);
+})(thelp);
