@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Demo - tributary helpers</title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script type="text/javascript" src='grid.js'></script>
+</head>
+<body>
+You should see a grid within a svg element <br/>	
+<script type="text/javascript">
+
+		var svg = d3.select('body').append('svg')
+				.attr({
+					width: 1000,
+					height: 1000,
+
+				});
+
+
+		var factor = 1.10528;
+		var w = 400 * factor;
+		var h = 420 * factor;
+		var rangeNr = 40;
+		var strokeCol = '#FFFFFF';
+		var background = '#478FF8';
+
+		tributary.helpers.grid(w,h,rangeNr, strokeCol, background);
+		
+
+
+</script>
+
+</body>
+</html>
