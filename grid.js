@@ -6,10 +6,10 @@ var thelp =  thelp || {};
 		svg.append('rect')
 		.attr('width', w)
 		.attr('height', h)
-		.style('fill',background)
+		.style('fill',background);	
 
 		var xscale = d3.scale.linear().domain([0, rangeX]).range([0, w]);
-		var yscale = d3.scale.linear().domain([0, rangeY]).range([0, h]);
+		var yscale = d3.scale.linear().domain([0, rangeY]).range([h, 0]);
 
 
 		var lineAttr = {
@@ -26,7 +26,7 @@ var thelp =  thelp || {};
 		var rangeX = d3.range(rangeX);
 		var rangeY = d3.range(rangeY);
 
-		var t = svg.selectAll('line')
+		var t = svg.selectAll('.line1')
 		.data(rangeX)
 		.enter()
 
@@ -39,7 +39,7 @@ var thelp =  thelp || {};
 		});
 
 
-		var t2 = svg.selectAll('line')
+		var t2 = svg.selectAll('.line2')
 		.data(rangeY)
 		.enter();
 
@@ -47,8 +47,8 @@ var thelp =  thelp || {};
 		.attr(lineAttr)
 		.attr({
 		x2: w,
-		y1: function(d,i){ return yscale(i);},
-		y2: function(d,i){ return yscale(i);},
+		y1: function(d, i){ return yscale(i);},
+		y2: function(d, i){ return yscale(i);}
 		});
 
 
